@@ -23,7 +23,7 @@ pipeline {
                 }
             }
         }
-        /*stage('SCA') {
+        stage('SCA') {
             steps {
                 dependencyCheckAnalyzer datadir: '/home/hirosh7/OWASP_NVD_Updates', hintsFile: '',
                 includeCsvReports: false, includeHtmlReports: true, includeJsonReports: false,
@@ -36,7 +36,7 @@ pipeline {
                     pattern: '**/dependency-check-report.xml', unHealthy: ''
                }
            }
-        }*/
+        }
         stage('Spotbugs SAST') {
             steps {
                 sh 'mvn spotbugs:spotbugs'
