@@ -36,14 +36,14 @@ pipeline {
                     pattern: '**/dependency-check-report.xml', unHealthy: ''
                }
            }
-        }/* comment
+        }
         stage('Spotbugs SAST') {
             steps {
                 sh 'mvn spotbugs:spotbugs'
                 findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '',
                 includePattern: '', isRankActivated: true, pattern: '**/spotbugsXml.xml', unHealthy: ''
             }
-        }*/
+        }
         stage('SonarQube SAST') {
            steps {
                withSonarQubeEnv('base-sonarqube-scanner') {
