@@ -41,7 +41,7 @@ pipeline {
             steps {
                 sh 'mvn spotbugs:spotbugs'
                 findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '',
-                includePattern: '', isRankActivated: true, pattern: '**/spotbugsXml.xml', unHealthy: ''
+                includePattern: '', isRankActivated: true, pattern: '**/spotbugsXml.xml', unHealthy: '''
             }
         }
         stage('SonarQube SAST') {
