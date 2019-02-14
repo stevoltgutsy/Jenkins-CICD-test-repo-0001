@@ -37,15 +37,15 @@ pipeline {
                }
            }
         }
-        stage('SAST') {
+        stage('Findbugs SAST') {
             steps {
                 sh 'mvn findbugs:findbugs'
                 findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '',
                 includePattern: '', isRankActivated: true, pattern: '**/findbugsXml.xml', unHealthy: ''
             }
         }
-        stage('SonarQube analysis') {
-           withSonarQubeEnv('My SonarQube Server') {
+        stage('SonarQube SAST') {
+           withSonarQubeEnv('base-sonarqube-scanner') {
               // requires SonarQube Scanner for Maven 3.2+
               sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
            }
