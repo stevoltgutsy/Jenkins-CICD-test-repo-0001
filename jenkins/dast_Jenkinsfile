@@ -36,7 +36,7 @@ pipeline {
                     pattern: '**/dependency-check-report.xml', unHealthy: ''
                }
            }
-        }/*
+        }
         stage('Spotbugs SAST') {
             steps {
                 sh 'mvn spotbugs:spotbugs'
@@ -48,7 +48,7 @@ pipeline {
                     pattern: '**/spotbugsXml.xml', unHealthy: ''
                }
             }
-        }*/
+        }
         stage('SonarQube SAST') {
            steps {
                withSonarQubeEnv('base-sonarqube-scanner') {
