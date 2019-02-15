@@ -40,7 +40,7 @@ pipeline {
         stage('Sonarqube') {
             environment {
                 // requires SonarQube Scanner 2.8+
-                scannerHome = tool 'SonarQube Scanner 3.3.0.1492'
+                scannerHome = tool 'SonarQube Scanner 2.8'
             }
             steps {
                withSonarQubeEnv('SonarQubeScanner') {
