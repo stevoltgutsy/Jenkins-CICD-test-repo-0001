@@ -39,6 +39,10 @@ pipeline {
         }
         stage('Sonarqube') {
             steps {
+              environment {
+                   // requires SonarQube Scanner 2.8+
+                   scannerHome = tool 'SonarQube Scanner 3.3.0.1492'
+               }
                withSonarQubeEnv('SonarQubeScanner') {
                      sh 'mvn sonar:sonar'
                }
