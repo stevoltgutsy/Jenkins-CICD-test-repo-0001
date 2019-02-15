@@ -38,11 +38,10 @@ pipeline {
            }
         }
         stage('Sonarqube') {
-            environment {
-                scannerHome = tool 'base-sonarqube-scanner'
-            }
             steps {
-                mvn sonar:sonar
+               withSonarQubeEnv('base-sonarqube-scanner') {
+                     mvn sonar:sonar
+               }
             }
         }
         stage('Deploy to Tomcat') {
