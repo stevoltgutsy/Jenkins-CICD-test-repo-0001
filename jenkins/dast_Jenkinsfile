@@ -42,12 +42,7 @@ pipeline {
                 scannerHome = tool 'base-sonarqube-scanner'
             }
             steps {
-                withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                }
-                timeout(time: 10, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
+                mvn sonar:sonar
             }
         }
         stage('Deploy to Tomcat') {
