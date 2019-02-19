@@ -23,7 +23,7 @@ pipeline {
                 }
             }
         }*/
-        stage('SCA') {
+        stage('Source Code Analysis') {
             steps {
                 dependencyCheckAnalyzer datadir: '/home/hirosh7/OWASP_NVD_Updates', hintsFile: '',
                 includeCsvReports: false, includeHtmlReports: true, includeJsonReports: false,
@@ -42,7 +42,7 @@ pipeline {
                 scannerHome = tool 'SuperSonarQube'
             }
             steps {
-               withSonarQubeEnv('sonarqube') {
+               withSonarQubeEnv('SuperSonarQube') {
                      sh ' ${scannerHome}/bin/sonar-scanner'
                      // sh 'mvn sonar:sonar'
                }
