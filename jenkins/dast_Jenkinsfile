@@ -46,7 +46,7 @@ pipeline {
                //      sh ' ${scannerHome}/bin/sonar-scanner'
                      // sh 'mvn sonar:sonar'
                //}
-               sh 'mvn sonar:sonar -Dsonar.host.url=http://wakanda.zapto.org:5588'
+               sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.0.25:5588'
             }
         }
         stage('Deploy to Tomcat') {
