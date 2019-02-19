@@ -42,10 +42,11 @@ pipeline {
                 scannerHome = tool 'SuperSonarQube'
             }
             steps {
-               withSonarQubeEnv('SuperSonarQube') {
-                     sh ' ${scannerHome}/bin/sonar-scanner'
+               //withSonarQubeEnv('SuperSonarQube') {
+               //      sh ' ${scannerHome}/bin/sonar-scanner'
                      // sh 'mvn sonar:sonar'
-               }
+               //}
+               sh 'mvn sonar:sonar -Dsonar.host.url=http://wakanda.zapto.org:5588'
             }
         }
         stage('Deploy to Tomcat') {
