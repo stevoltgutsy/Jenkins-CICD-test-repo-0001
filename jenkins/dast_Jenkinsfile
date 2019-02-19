@@ -39,7 +39,6 @@ pipeline {
         }
         stage('SonarQube') {
             environment {
-                // requires SonarQube Scanner 2.8+
                 scannerHome = tool 'SonarQubeScanner'
             }
             steps {
