@@ -37,16 +37,14 @@ pipeline {
                }
            }
         }
-        stage('SonarQube') {
+        stage('SonarQube Analysis') {
             environment {
-                scannerHome = tool 'SuperSonarQube'
+                SCANNER_URL = 'http://192.168.0.25:8888'
             }
             steps {
-               //withSonarQubeEnv('SuperSonarQube') {
-               //      sh ' ${scannerHome}/bin/sonar-scanner'
-                     // sh 'mvn sonar:sonar'
-               //}
-               sh 'mvn clean deploy sonar:sonar -Dsonar.host.url=http://192.168.0.25:8888'
+               withSonarQubeEnv('Jenkins SonarQube') {
+                   sh 'mvn sonar:sonar -Dsonar.host.url=${SCANNER_URL}'
+               }
             }
         }
         stage('Deploy to Tomcat') {
