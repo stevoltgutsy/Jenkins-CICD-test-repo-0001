@@ -43,7 +43,7 @@ pipeline {
             }
             steps {
                withSonarQubeEnv('Jenkins SonarQube') {
-                   sh 'mvn clean package sonar:sonar -Dsonar.host.url=${SCANNER_URL}'
+                   sh 'mvn clean -DskipTests package sonar:sonar -Dsonar.host.url=${SCANNER_URL}'
                }
             }
         }
