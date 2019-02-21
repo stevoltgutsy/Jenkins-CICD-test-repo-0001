@@ -61,7 +61,7 @@ pipeline {
                 //sh '/usr/bin/docker cp jspwiki-war/target/JSPWiki.war Tomcat:/usr/local/tomcat/webapps'
             }
         }/*
-        stage('Arachni Scan') {
+        stage('Arachni Scanner') {
             steps {
                 //arachniScanner checks: '*', format: 'html', url: 'http://172.17.0.2:7373', userConfig: [filename: '']
                 arachniScanner checks: '*', scope: [pageLimit: 3], url: 'http://wakandanation.zapto.org:5588/JSPWiki', userConfig: [filename: ''], format: 'json'
