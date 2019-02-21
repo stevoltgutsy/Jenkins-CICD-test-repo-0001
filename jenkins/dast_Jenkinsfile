@@ -47,10 +47,17 @@ pipeline {
                }
             }
         }
+        stage('SonarQube Q-Gate Check') {
+           steps {
+             timeout(time: 2, unit: 'MINUTES') {
+                  waitForQualityGate abortPipeline: true
+             }
+           }
+        }
         stage('Deploy to Tomcat') {
             steps {
                 unstash 'app'
-                sh 'curl --upload-file jspwiki-war/target/JSPWiki.war "http://jenkins:Dutchy7@192.168.0.25:8888/manager/text/deploy?path=/JSPWiki&update=true"'
+                sh 'curl --upload-file jspwiki-war/target/JSPWiki.war "http://jenkins:Dutchy7@192.168.0.25:9000/manager/text/deploy?path=/JSPWiki&update=true"'
                 //sh '/usr/bin/docker cp jspwiki-war/target/JSPWiki.war Tomcat:/usr/local/tomcat/webapps'
             }
         }/*
