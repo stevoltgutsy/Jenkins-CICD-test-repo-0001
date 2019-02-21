@@ -10,7 +10,6 @@ pipeline {
             steps {
                 sh 'mvn -B -DskipTests package'
                 stash includes: 'jspwiki-war/target/*.war', name: 'app'
-                sh 'mvn clean'
             }
         }/*
         stage('Unit Test') {
@@ -43,7 +42,8 @@ pipeline {
             }
             steps {
                withSonarQubeEnv('Jenkins SonarQube') {
-                   sh 'mvn clean -DskipTests package sonar:sonar -Dsonar.host.url=${SCANNER_URL}'
+                   //sh 'mvn clean -DskipTests package sonar:sonar -Dsonar.host.url=${SCANNER_URL}'
+                   sh 'mvn sonar:sonar -Dsonar.host.url=${SCANNER_URL}'
                }
             }
         }
