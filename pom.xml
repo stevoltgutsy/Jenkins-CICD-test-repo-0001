@@ -45,7 +45,7 @@
     <akismet-java.version>1.02</akismet-java.version>
     <commons-fileupload.version>1.4</commons-fileupload.version>
     <commons-httpclient.version>3.1</commons-httpclient.version>
-    <commons-io.version>2.4</commons-io.version>
+    <commons-io.version>2.7</commons-io.version>
     <commons-lang.version>2.6</commons-lang.version>
     <ehcache.version>2.10.6</ehcache.version>
     <flexmark.version>0.40.12</flexmark.version>
